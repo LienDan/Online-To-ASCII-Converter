@@ -16,5 +16,5 @@ I saw a cool video of something making a bad apple to ascii video which I though
 
 Just download the files, and open the HTML. You can upload any image file type or video file type (videos don't work as of now). You can select a length for the output's horizontal characters, and the dimensions ratio will automatically be applied to the vertical characters.
 
-Or, you can run the program online here at this site: (will set up a github pages for this)
+Or, you can run the program online here at this site: https://liendan.github.io/Online-To-ASCII-Converter/
 
