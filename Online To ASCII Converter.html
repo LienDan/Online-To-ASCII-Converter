@@ -3,21 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>My First Webpage</title>
-    <script src="script.js"></script> <!--includes the js script file to handle functions and logic-->
+    <script src="script.js" defer></script> <!--includes the js script file to handle functions and logic-->
 
     <!--Use internal style rules as this isn't a major project, I don't need a dedicated css file. Plus it'll be easier to make changes if it's here-->
     <style>
         .center {
             text-align: center;
         }
+
+        button{
+            padding: 15px 32px;
+            font-size: 20px;
+        }
+
     </style>
 </head>
 <body>
     <div class="center">
         <h1>Online To ASCII Converter</h1>
         <h2>Code and project by Daniel Lien.</h2>
-        <input type="file" accept="video/*, image/*">
+        <label>Horizontal character length:</label>
+        <input type="range" min="10" max="500" value="100" step="1" id="horizontalSlider">
+        <label id="sliderNum">100 characters.</label>
+        <br><br>
+        <input id="input" type="file" accept="video/*, image/*">
+        <br><br>
+
+        <button id="converter" type="button">Convert</button>
+
+        <br><br>
+        <pre id="output"></pre>
+        <br>
+        <img>
     </div>
+
     
 
 </body>
