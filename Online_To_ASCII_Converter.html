@@ -25,6 +25,13 @@
         <label>Horizontal character length:</label>
         <input type="range" min="10" max="500" value="100" step="1" id="horizontalSlider">
         <label id="sliderNum">100 characters.</label>
+        <br>
+        <label>Frames per second (only applies to videos):</label>
+        <input type="range" min="1" max="120" value="30" step="1" id="framerate">
+        <label id="fpsNum">30 fps.</label>
+        <br>
+        <label>Prerender video frames before display:</label>
+        <input type="checkbox" id="prerender" checked="true">
         <br><br>
         <input id="input" type="file" accept="video/*, image/*">
         <br><br>
@@ -35,6 +42,7 @@
         <pre id="output"></pre>
         <br>
         <img>
+        <video></video>
     </div>
 
     
