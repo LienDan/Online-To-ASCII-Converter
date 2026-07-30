@@ -18,3 +18,4 @@ Just download the files, and open the HTML. You can upload any image file type o
 
 Or, you can run the program online here at this site: https://liendan.github.io/Online-To-ASCII-Converter/
 
+![Demo GIF](demo.gif)
