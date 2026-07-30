@@ -6,7 +6,7 @@
 
 
 
-I saw a cool video of something making a bad apple to ascii video which I thought was cool, so I figured I'd try making my own and that this program would be a great way to refresh my knowledge on HTML, CSS and JavaScript as the last time I did something in it was for a class project. This project allows users to upload images or videos and convert it into ascii art or an ascii animation. 
+I saw a lot of videos online converting or playing bad apple in cool creatives way like turning it to ascii, so I figured I'd try making my own and that this program would be a great way to refresh my knowledge on HTML, CSS and JavaScript as the last time I did something in it was for a class project. This project allows users to upload images or videos and convert it into ascii art or an ascii animation. 
 
 
 
