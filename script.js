@@ -86,6 +86,7 @@ function videoToASCII(inputfile){
         //i use recurrsion as there were issues with a for loop continuing before the frame was finished rendering
         function recursiveVideoToFrame(){
             if(seekTime + interval <= length){
+                let startTime = performance.now();  
                 //console.log(seekTime+"/"+length);
                 vid.currentTime = seekTime;
                 vid.onseeked = function() {
@@ -105,7 +106,7 @@ function videoToASCII(inputfile){
                     seekTime += interval;
                     if(!prerender.checked){
                         asciiOutput.textContent = output;
-                        setTimeout(() => {recursiveVideoToFrame();}, 1000*interval);
+                        setTimeout(() => {recursiveVideoToFrame();}, Math.max(0,(1000 * interval) - (performance.now() - startTime)));
                     }
                     else{
                         asciiOutput.textContent = "Rendering " + Math.round((seekTime / length)*100) + "% progress"
@@ -119,17 +120,29 @@ function videoToASCII(inputfile){
         }
 
         recursiveVideoToFrame();
-
+        
         let curr = 0;
+        let startTime = null;
         function prerenderDisplay(){
+            if(startTime == null){
+                startTime = performance.now();  
+            }
+                
             asciiOutput.textContent = outputString[curr];
             curr += 1;
-            if(curr >= outputString.length){
+
+            if(curr % outputString.length == 0){
                 curr = 0;
+                startTime = performance.now();
             }
-            setTimeout(prerenderDisplay, 1000*interval);
             
+            //delay builds up overtime causing the output to be out of sync compared to the input, so i reduce the wait time based on delay
+            let nodelay = startTime + (curr * interval * 1000);
+            let delay = nodelay - performance.now();
+
+            setTimeout(prerenderDisplay, Math.max(0, delay));
         }
+        
     }
 
 }
@@ -170,10 +183,8 @@ const asciiChars = "@#*=-:. ";
 //event listeners
 convertButton.addEventListener("click", convertToASCII);
 horizontalSlider.addEventListener("input", ()=>{
-    console.log("TEST");
     document.getElementById("sliderNum").textContent = horizontalSlider.value.toString() + " characters.";
 });
 fpsSlider.addEventListener("input", ()=>{
-    console.log("TEST");
     document.getElementById("fpsNum").textContent = fpsSlider.value.toString() + " fps.";
 });
